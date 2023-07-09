@@ -8,6 +8,13 @@ class Produto:
         self.anterior = None
         self.proximo = None
 
+    def mostrar_produto(self):
+        print('=' * 44)
+        print(f'Cod: {self.cod}')
+        print(f'Nome do produto: {self.nome} ')
+        print(f'Preço: R$:{self.preco:.2f} ')
+        print(f'Qtd estoque: {self.qtd_estoque}')
+
 
 class ListaDeProdutos:
 
@@ -18,7 +25,7 @@ class ListaDeProdutos:
     def __lista_vazia(self):
         return self.head is None
 
-    def adicionar_inicio(self, cod: str, nome: str, preco: float, qtd_estoque: int):
+    def adicionar(self, cod: str, nome: str, preco: float, qtd_estoque: int):
         novo = Produto(cod, nome, preco, qtd_estoque)
         if self.__lista_vazia():
             self.head = novo
@@ -86,11 +93,7 @@ class ListaDeProdutos:
         print('Listando produtos a partir do inicio da lista')
         atual = self.head
         while atual is not None:
-            print('='*45)
-            print(f'Cod: {atual.cod}')
-            print(f'Nome do produto: {atual.nome} ')
-            print(f'Preço: R$:{atual.preco:.2f} ')
-            print(f'Qtd estoque: {atual.qtd_estoque}')
+            atual.mostrar_produto()
             atual = atual.proximo
         print()
 
@@ -103,20 +106,16 @@ class ListaDeProdutos:
         print('Listando produtos a partir do final da lista')
         atual = self.tail
         while atual is not None:
-            print('='*44)
-            print(f'Cod: {atual.cod}')
-            print(f'Nome do produto: {atual.nome} ')
-            print(f'Preço: R$:{atual.preco:.2f} ')
-            print(f'Qtd estoque: {atual.qtd_estoque}')
+            atual.mostrar_produto()
             atual = atual.anterior
         print()
 
 
 lista_de_produtos = ListaDeProdutos()
-lista_de_produtos.adicionar_inicio('25', 'Sabão', 1.50, 130)
-lista_de_produtos.adicionar_inicio('316', 'Açucar', 3.00, 83)
-lista_de_produtos.adicionar_inicio('45', 'Macarrão', 7.00, 64)
-lista_de_produtos.adicionar_inicio('663', 'Farinha de mandioca', 6.20, 30)
+lista_de_produtos.adicionar('25', 'Sabão', 1.50, 130)
+lista_de_produtos.adicionar('316', 'Açucar', 3.00, 83)
+lista_de_produtos.adicionar('45', 'Macarrão', 7.00, 64)
+lista_de_produtos.adicionar('663', 'Farinha de mandioca', 6.20, 30)
 lista_de_produtos.listar_produtos_inicio()
 lista_de_produtos.listar_produtos_final()
 lista_de_produtos.remover(nome='Macarrão')
