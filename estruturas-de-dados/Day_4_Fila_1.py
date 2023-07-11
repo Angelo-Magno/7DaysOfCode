@@ -35,12 +35,12 @@ class FilaDePedidos:
     def __fila_vazia(self):
         return len(self.fila) == 0
 
-    def enfileirar(self,  n_pedido: int, nome_cliente: str, itens_pedido: list, valor_total):
+    def adicionar_pedido(self,  n_pedido: int, nome_cliente: str, itens_pedido: list, valor_total):
         novo_pedido = Pedido(n_pedido, nome_cliente, itens_pedido, valor_total)
         self.fila.appendleft(novo_pedido)
         print('Pedido Adicionado!' + '\n')
 
-    def desemfileirar(self):
+    def remover_pedido(self):
         if self.__fila_vazia():
             print('Não há pedidos na Fila!')
             return
@@ -57,11 +57,11 @@ class FilaDePedidos:
 
 
 fila_pedidos = FilaDePedidos()
-fila_pedidos.enfileirar(1, 'Angelo', ['Prato do dia', 'Suco de acerola'], 26)
-fila_pedidos.enfileirar(2, 'Luiz', ['Picanha', 'Arroz', 'Feijão Preto', 'Salada', 'Coca 250ml'], 52)
-fila_pedidos.enfileirar(3, 'Rebecca', ['Strogonoff de frango', 'Arroz', 'Salada', 'Suco de laranja'], 32)
+fila_pedidos.adicionar_pedido(1, 'Angelo', ['Prato do dia', 'Suco de acerola'], 26)
+fila_pedidos.adicionar_pedido(2, 'Luiz', ['Picanha', 'Arroz', 'Feijão Preto', 'Salada', 'Coca 250ml'], 52)
+fila_pedidos.adicionar_pedido(3, 'Rebecca', ['Strogonoff de frango', 'Arroz', 'Salada', 'Suco de laranja'], 32)
 fila_pedidos.mostrar()
-fila_pedidos.desemfileirar()
+fila_pedidos.remover_pedido()
 fila_pedidos.mostrar()
-fila_pedidos.enfileirar(4, 'Alan', ['Sopa de Carne', 'Torrada'], 22)
+fila_pedidos.adicionar_pedido(4, 'Alan', ['Sopa de Carne', 'Torrada'], 22)
 fila_pedidos.mostrar()
