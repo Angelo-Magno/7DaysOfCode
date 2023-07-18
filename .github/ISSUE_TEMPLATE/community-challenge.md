@@ -1,6 +1,6 @@
 ---
 name: Community Challenge
-about: Crie uma issue sobre sugestões de melhorias
+about: Crie uma issue sobre sugestões e melhorias
 title: "[SUGESTÃO]"
 labels: community challenge
 assignees: ''
